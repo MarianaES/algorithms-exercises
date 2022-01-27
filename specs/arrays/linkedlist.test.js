@@ -68,14 +68,14 @@ class LinkedList {
       this.length--;
       return head.value;
     }
-
+    // find the node previous to the one we want to delete
     const node = this._find(index - 1);
-    const excise = node.next;
-    if (!excise) return null;
-    node.next = excise.next;
+    const toBeDeleted = node.next;
+    if (!toBeDeleted) return null;
+    node.next = toBeDeleted.next;
     if (!node.next) this.tail = node.next;
     this.length--;
-    return excise.value;
+    return toBeDeleted.value;
   }
 }
 
