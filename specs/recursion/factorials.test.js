@@ -10,11 +10,14 @@
   factorial(3) = 6 
 */
 
-function factorial(n) {}
+function factorial(num) {
+  if (num < 2) return 1;
+  return num * factorial(num - 1);
+}
 
 // unit tests
 // do not modify the below code
-test.skip("factorials", () => {
+test("factorials", () => {
   expect(factorial(1)).toEqual(1);
   expect(factorial(2)).toEqual(2);
   expect(factorial(3)).toEqual(6);
