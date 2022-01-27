@@ -19,12 +19,12 @@ function insertionSort(nums) {
     let j = i - 1;
 
     while (j >= 0 && nums[j] > numToInsert) {
-      nums[j + 1] = nums[j]
-      j = i - 1
+      nums[j + 1] = nums[j];
+      j--;
     }
-    nums[j + 1] = numToInsert
+    nums[j + 1] = numToInsert;
   }
-  return nums
+  return nums;
 }
 
 // unit tests
