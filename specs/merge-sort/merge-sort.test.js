@@ -8,6 +8,42 @@
 
 const { result } = require("lodash");
 
+// const mergeSort = (nums) => {
+//   // base case, return if length 1 or 0
+//   if (nums.length < 2) {
+//     return nums;
+//   }
+//   // break into two smaller arrays
+//   const length = nums.length;
+//   const middle = Math.floor(length / 2);
+//   const left = nums.slice(0, middle);
+//   const right = nums.slice(middle);
+
+//   // call mergeSort on left and right
+//   const sortedLeft = mergeSort(left);
+//   const sortedRight = mergeSort(right);
+//   console.log({ sortedLeft, sortedRight });
+//   // return the merge of left and right
+//   return merge(sortedLeft, sortedRight);
+// };
+
+// const merge = (left, right) => {
+//   const results = [];
+
+//   // here if length is 0 then is false
+//   while (left.length && right.length) {
+//     if (left[0] <= right[0]) {
+//       results.push(left.shift());
+//     } else {
+//       results.push(right.shift());
+//     }
+//   }
+
+//   // return one sorted array, one of them will be an empty array
+//   return results.concat(left, right);
+// };
+
+// ALTERNATIVE 2
 const mergeSort = (nums) => {
   // base case, return if length 1 or 0
   if (nums.length < 2) {
@@ -23,24 +59,18 @@ const mergeSort = (nums) => {
   const sortedLeft = mergeSort(left);
   const sortedRight = mergeSort(right);
 
-  // return the merge of left and right
-  return merge(sortedLeft, sortedRight);
-};
-
-const merge = (left, right) => {
   const results = [];
 
   // here if length is 0 then is false
-  while (left.length && right.length) {
-    if (left[0] <= right[0]) {
-      results.push(left.shift());
+  while (sortedLeft.length && sortedRight.length) {
+    if (sortedLeft[0] <= sortedRight[0]) {
+      results.push(sortedLeft.shift());
     } else {
-      results.push(right.shift());
+      results.push(sortedRight.shift());
     }
   }
-
-  // return one sorted array, one of them will be an empty array
-  return results.concat(left, right);
+  // return the merge of left and right
+  return results.concat(sortedLeft, sortedRight);
 };
 
 // unit tests
